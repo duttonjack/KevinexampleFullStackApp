@@ -1,17 +1,19 @@
 import express from 'express';
 import path from 'path';
 import pg from 'pg';
+import 'dotenv/config';
 
 const { Pool } = pg;
 const app = express();
 
 const expressPort = 8002;
 
+const databaseURL = process.env.PG_DATABASE_URL;
+
+console.log(databaseURL);
+
 const pool = new Pool ({
-  user: 'kevingoble',
-  host: 'localhost',
-  database: 'items',
-  port: 5432
+  connectionString: databaseURL,
 });
 
 app.use(express.static('public'));
