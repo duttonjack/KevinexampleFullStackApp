@@ -6,13 +6,11 @@ import 'dotenv/config';
 const { Pool } = pg;
 const app = express();
 
-const expressPort = 8002;
+const expressPort = 8003;
+const connectionString = process.env.DATABASE_URL  
 
 const pool = new Pool ({
-  user: 'duttonjack',
-  host: 'localhost',
-  database: 'kevindeployexample',
-  port: 5432
+  connectionString,
 })
 
 // const databaseURL = process.env.PG_DATABASE_URL;
