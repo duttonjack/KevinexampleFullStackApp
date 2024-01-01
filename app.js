@@ -8,13 +8,20 @@ const app = express();
 
 const expressPort = 8002;
 
-const databaseURL = process.env.PG_DATABASE_URL;
-
-console.log(databaseURL);
-
 const pool = new Pool ({
-  connectionString: databaseURL,
-});
+  user: 'duttonjack',
+  host: 'localhost',
+  database: 'kevindeployexample',
+  port: 5432
+})
+
+// const databaseURL = process.env.PG_DATABASE_URL;
+
+// console.log(databaseURL);
+
+// const pool = new Pool ({
+//   connectionString: databaseURL,
+// });
 
 app.use(express.static('public'));
 app.use(express.json());
